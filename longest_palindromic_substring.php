@@ -1,5 +1,5 @@
 <?php
-
+//                      STATUS: Not Accepted
 class Solution {
 
     function longestPalindrome($s) {
