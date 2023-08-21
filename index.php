@@ -196,6 +196,32 @@ echo filter_var($url, FILTER_SANITIZE_URL);
 
 
 
-echo '<br/> ------------- Leet Code -------------- <br/>';
+echo '<br/> ------------- extract Method -------------- <br/>';
+
+$a = "GeeksforGeeks";
+$my_array = array("a" => "Geeks","b" => "for", "d" => "Geeks");
+extract($my_array, EXTR_OVERWRITE);
+echo "a = $a "."<br>";
+echo "b = $b "."<br>";
+echo "d = $d "."<br>";
 
 
+
+echo '<br/> ------------- Nearest time -------------- <br/>';
+function findClosest($arr, $n, $target) {
+    $left = 0;
+    $right = $n - 1;
+    while ($left < $right) {
+        if (abs($arr[$left] - $target) <= abs($arr[$right] - $target)) {
+            $right--;
+        } else {
+            $left++;
+        }
+    }
+    return $arr[$left];
+}
+
+$arr = array(1, 2, 5, 6, 6, 8, 8, 9);
+$n = sizeof($arr);
+$target = 4;
+echo findClosest($arr, $n, $target);
