@@ -207,7 +207,7 @@ echo "d = $d "."<br>";
 
 
 
-echo '<br/> ------------- Nearest time -------------- <br/>';
+echo '<br/> ------------- get Closest Number -------------- <br/>';
 function findClosest($arr, $n, $target) {
     $left = 0;
     $right = $n - 1;
@@ -225,3 +225,43 @@ $arr = array(1, 2, 5, 6, 6, 8, 8, 9);
 $n = sizeof($arr);
 $target = 4;
 echo findClosest($arr, $n, $target);
+
+
+
+
+
+echo '<br/> ------------- get Closest time -------------- <br/>';
+
+$timeArray = [
+    "8:00 AM",
+    "9:00 AM",
+    "6:00 AM",
+    "10:00 PM",
+    "2:00 PM",
+    "6:00 AM",
+    "9:00 AM",
+    "8:00 AM",
+    "6:00 AM",
+    "10:05 PM",
+    "2:05 PM",
+    "6:00 AM",
+    "9:30 AM"
+];
+
+$targetTime = date('h:i A');
+
+$targetTimestamp = strtotime($targetTime);
+$closestTime = null;
+$minTimeDifference = PHP_INT_MAX;
+
+foreach ($timeArray as $timeValue) {
+    $timeStamp = strtotime($timeValue);
+    $timeDifference = abs($timeStamp - $targetTimestamp);
+
+    if ($timeDifference < $minTimeDifference) {
+        $minTimeDifference = $timeDifference;
+        $closestTime = $timeValue;
+    }
+}
+
+echo "Closest time: $closestTime";
