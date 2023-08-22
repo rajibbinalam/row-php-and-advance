@@ -1,5 +1,5 @@
 <?php
-            // STATUS: Working   ( -Hard -follow solution -Need to understand more about RegEx )
+            // STATUS: Accepted   ( -Hard -follow solution -Need to understand more about RegEx )
     const BR = '<br/>';
 class Solution {
 
