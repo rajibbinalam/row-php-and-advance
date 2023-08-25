@@ -1,21 +1,25 @@
 <?php
-            // STATUS: Working
+            // STATUS: Accepted   ( -Hard -follow solution -Need to understand more about RegEx )
     const BR = '<br/>';
 class Solution {
 
     function myAtoi($s) {
-        $trim_string = preg_replace('/[^0-9-]/', '', $s);
-        return $trim_string = ltrim($trim_string, '0');
+        $str = trim($s);
+        $max = pow(2,31)-1;
+        $min = pow(-2,31);
+        if(preg_match('/^(-|\+)?\d+/', $str, $match)){
+            $num = $match[0] - 0;
+            $num = $num > $max ? $max : $num;
+            $num = $num < $min ? $min : $num;
+            return $num;
+        }
+        return 0;
 
-        // if($trim_string > -2147483648 && $trim_string < 2147483647-1){
-        //     return $trim_string;
-        // }
     }
 }
 
-// $s = "   _   ____-42";
+// $s = "   -42";
 // $s = "003200";
 // $s = "4193 with words";
 // $s = "words and 987";
-$s = "_____-+123";
 echo (new Solution())->myAtoi($s);
