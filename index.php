@@ -144,7 +144,7 @@ $txt = '<?php
 class Hello{
     // Code Here
 }';
-fwrite($new, '?>');
+fwrite($new, '');
 fclose($new);
 
 
@@ -225,3 +225,22 @@ $arr = array(1, 2, 5, 6, 6, 8, 8, 9);
 $n = sizeof($arr);
 $target = 4;
 echo findClosest($arr, $n, $target);
+
+
+
+echo '<br/> ------------- Facade Design Pattern  -------------- <br/>';
+
+$facade = new Facade();
+$facade->findApartments('dhaka, jatrabari', 'mapDiv');
+
+
+
+echo '<br/> ------------- Connect MYSQL with OOP  -------------- <br/>';
+
+$db = new mysqli('localhost','root', '12345', 'rawphp');
+if(mysqli_connect_errno()){
+    echo 'Error connecting to';
+    exit();
+}else{
+    echo 'Successfully connected';
+}
