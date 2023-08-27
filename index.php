@@ -277,10 +277,33 @@ $facade->findApartments('dhaka, jatrabari', 'mapDiv');
 
 echo '<br/> ------------- Connect MYSQL with OOP  -------------- <br/>';
 
-$db = new mysqli('localhost','root', '12345', 'rawphp');
-if(mysqli_connect_errno()){
-    echo 'Error connecting to';
-    exit();
-}else{
-    echo 'Successfully connected';
+try {
+    $db = new mysqli('localhost','root', '', 'rawphp');
+    if(mysqli_connect_errno()){
+        echo 'Error connecting to';
+        exit();
+    }else{
+        echo 'Successfully connected';
+    }
+} catch (\Throwable $th) {}
+
+
+
+echo '<br/> ------------- Connect MYSQL with PDO  -------------- <br/>';
+
+$dsn = "mysql:dbname=rawphp;host=localhost";
+$user = "root";
+$pass = "";
+
+try {
+    $pdo = new PDO($dsn, $user, $pass);
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+
+$sql = "SELECT * FROM users";
+
+$users = $pdo->query($sql);
+foreach ($users as $user) {
+    echo $user['username'] . '-' . $user['skill'] . '<br/>';
 }
