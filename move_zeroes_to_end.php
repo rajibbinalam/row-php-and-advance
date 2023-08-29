@@ -1,6 +1,5 @@
 <?php
             // STATUS: Accepted
-    const BR = '<br/>';
 class Solution {
 
     function moveZeroes(&$nums) {
@@ -11,6 +10,7 @@ class Solution {
             }
             return $value!=0;
         });
+        // $nums = array_pad($nums,(count($nums)+$count),'0');
         while($count != 0){
             array_push($nums, 0);
             $count--;
