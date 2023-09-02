@@ -1,21 +1,9 @@
 <?php
+echo '<h2>This Index is for Raw PHP</h2>'
 // define("BR", "<br />");
 const BR = '<br />';
 
-// class Car{
-//     var $color;
-
-//     function HelloWorld(){
-
-//         echo "Hello World ".BR."$this->color";
-//     }
-
-// }
-
-// $car = new Car();
-// $car->color = 'red';
-// $car->HelloWorld();
-
+echo '------------------------cURL----------------------------'.BR;
 
 // $url = 'https://www.amazon.com/';
 // $url = 'https://www.google.com/';
@@ -33,7 +21,7 @@ curl_close($curl);
 
 
 
-
+echo '------------------------ Something is here ----------------------------'.BR;
 class User{
     public $name;
     public $age;
@@ -57,7 +45,7 @@ $age = 25;
 $user = new User($name, $age);
 $user->userOne();
 
-echo '--------------------------- <br/>';
+echo '<br/>-------------  Use Of Megic Mathods -------------- <br/>';
 
 class Student{
 
@@ -76,7 +64,7 @@ $s = new Student();
 $s->Hasan = 'Mahmud';
 
 
-echo '--------------------------- <br/>';
+echo '<br/> ------------- Autoload and SPL autoload register -------------- <br/>';
 
 
 
@@ -94,7 +82,7 @@ $ruby = new Ruby;
 $java = new Java;
 
 
-echo '--------------------------- <br/>';
+echo ' <br/>-----------  Constent Create ---------------- <br/>';
 
 class ConstantCreate{
     const HELLO = 'Hello World'.BR;
@@ -207,7 +195,7 @@ echo "d = $d "."<br>";
 
 
 
-echo '<br/> ------------- get Closest Number -------------- <br/>';
+echo '<br/> ------------- get Closest Number From an Array -------------- <br/>';
 function findClosest($arr, $n, $target) {
     $left = 0;
     $right = $n - 1;
@@ -230,7 +218,7 @@ echo findClosest($arr, $n, $target);
 
 
 
-echo '<br/> ------------- get Closest time -------------- <br/>';
+echo '<br/> ------------- get Closest time From Array of Times -------------- <br/>';
 
 $timeArray = [
     "8:00 AM",
@@ -267,43 +255,3 @@ foreach ($timeArray as $timeValue) {
 echo "Closest time: $closestTime";
 
 
-
-echo '<br/> ------------- Facade Design Pattern  -------------- <br/>';
-
-$facade = new Facade();
-$facade->findApartments('dhaka, jatrabari', 'mapDiv');
-
-
-
-echo '<br/> ------------- Connect MYSQL with OOP  -------------- <br/>';
-
-try {
-    $db = new mysqli('localhost','root', '', 'rawphp');
-    if(mysqli_connect_errno()){
-        echo 'Error connecting to';
-        exit();
-    }else{
-        echo 'Successfully connected';
-    }
-} catch (\Throwable $th) {}
-
-
-
-echo '<br/> ------------- Connect MYSQL with PDO  -------------- <br/>';
-
-$dsn = "mysql:dbname=rawphp;host=localhost";
-$user = "root";
-$pass = "";
-
-try {
-    $pdo = new PDO($dsn, $user, $pass);
-} catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
-
-$sql = "SELECT * FROM users";
-
-$users = $pdo->query($sql);
-foreach ($users as $user) {
-    echo $user['username'] . '-' . $user['skill'] . '<br/>';
-}
