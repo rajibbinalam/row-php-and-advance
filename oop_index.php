@@ -1,5 +1,5 @@
 <?php
-echo '<h2>This Index is for OOP PHP</h2>'
+echo '<h2>This Index is for OOP PHP</h2>';
 
 const BR = '<br />';
 echo '------------------------Start The Practice----------------------------'.BR;
@@ -10,8 +10,8 @@ spl_autoload_register(function($class){
     include 'classes/'.$class.'.php';
 });
 
-$php = new SebastianBergmann\CodeCoverage\Report\PHP;
-$php->php();
+// $php = new SebastianBergmann\CodeCoverage\Report\PHP;
+// $php->php();
 
 
 echo '------------------------ Reguler Expression -- preg_match ----------------------------'.BR;
