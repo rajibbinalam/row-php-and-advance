@@ -1,33 +1,43 @@
 <?php
-//                      STATUS: W
+//                      STATUS: Accepted ( but see the Solution )
 
-class Solution {
+class Solution
+{
 
-    function findAndReplacePattern($words, $pattern) {
-        $x_patterns = str_split($pattern);
-        $c = 0;
-        foreach ($x_patterns as $key => $x_pattern) {
-            $$x_pattern = ++$c;
+    function findAndReplacePattern($words, $pattern)
+    {
+        $patternStr = $this->patternTrans($pattern);
+
+        $resultArr = [];
+
+        for ($i = 0; $i < count($words); $i++) {
+            if ($patternStr == $this->patternTrans($words[$i])) {
+                array_push($resultArr, $words[$i]);
+            };
         }
-        print_r($x_patterns->$$x_pattern);
+        return $resultArr;
+    }
 
+    function patternTrans($str)
+    {
+        $strPattern = '';
+        $strArr = str_split($str);
 
-        // $n_arr = [];
-        // foreach ($words as $key => $word) {
-        //     if(strlen($word) != strlen($pattern)){
-        //         continue;
-        //     }
-        //     $x_words = str_split($word);
-
-        //     foreach ($x_words as $key => $x_word) {
-        //         $x_patterns[$key] = $x_words[$key];
-        //     }
-
-        //     print_r($x_patterns);
-        // }
-
+        for ($i = 0; $i < strlen($str); $i++) {
+            for ($j = $i + 1; $j <= strlen($str); $j++) {
+                if (array_key_exists($j, $strArr)) {
+                    if ($str[$i] == $str[$j]) {
+                        $strPattern .= $i;
+                    } else {
+                        $strPattern .= $j;
+                    }
+                }
+            }
+        }
+        return $strPattern;
     }
 }
 
-$words = ["abc","deq","mee","aqq","dkd","ccc"]; $pattern = "abb";
-echo (new Solution())->findAndReplacePattern($words, $pattern);
+$words = ["abc", "deq", "mee", "aqq", "dkd", "ccc"];
+$pattern = "aaa";
+print_r((new Solution())->findAndReplacePattern($words, $pattern));
