@@ -1,2 +1,4 @@
-# Raw Php and Leetcode Problems
-Practice Raw PHP and Problem Solve From Leet Code => [My LeetCode Profile](https://leetcode.com/rajibbinalam/)
+# Practice Raw Php, build in functions and Advance PHP
+#### from
+1. [w3school](https://www.w3schools.com/php/default.asp)
+
